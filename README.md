@@ -40,10 +40,12 @@ The app uses regular expressions to identify different token types from the inpu
 
 ## 📁 Project Structure
 
-LexicalAnalyzer/
+
+```text
+lexical-analyzer/
 ├── index.html          # Main HTML file
 ├── styles.css          # Styling for the UI
 ├── assets/
-│   └── screenshot.png  # Screenshot of the web app (optional)
+│   └── screenshot.png  # Screenshot of the web app
 └── README.md           # Project documentation
 
