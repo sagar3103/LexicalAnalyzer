@@ -21,7 +21,7 @@ This is a simple **Lexical Analyzer** web application built with HTML, CSS, and 
 
 ## 🖼️ Preview
 
-![App Screenshot](https://via.placeholder.com/800x400?text=Lexical+Analyzer+Web+App)
+![App Screenshot](./assets/screenshots.png)
 
 ---
 
