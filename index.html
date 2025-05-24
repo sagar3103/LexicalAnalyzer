@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexical Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Lexical Analyzer</h1>
+    <textarea id="inputCode" placeholder="Enter your code here..."></textarea>
+    <div class="buttons">
+      <button onclick="analyze()">Analyze</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <div id="output" class="result"></div>
+  </div>
+
+  <script>
+    const keywords = ["int", "float", "if", "else", "while", "return"];
+
+    function analyze() {
+      const code = document.getElementById("inputCode").value;
+      const tokens = code.match(/\w+|[+\-*/=();{}]/g) || [];
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "";
+
+      tokens.forEach(token => {
+        let type = "Unknown";
+
+        if (keywords.includes(token)) {
+          type = "Keyword";
+        } else if (/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(token)) {
+          type = "Identifier";
+        } else if (/^\d+$/.test(token)) {
+          type = "Number";
+        } else if (/^[+\-*\/=]$/.test(token)) {
+          type = "Operator";
+        } else if (/^[();{}]$/.test(token)) {
+          type = "Separator";
+        }
+
+        outputDiv.innerHTML += `<div class="token"><span>Token:</span> ${token} &nbsp; | &nbsp; <span>Type:</span> ${type}</div>`;
+      });
+    }
+
+    function clearAll() {
+      document.getElementById("inputCode").value = "";
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
